@@ -1,0 +1,27 @@
+.header {
+    padding: 12px;
+    background-color: rgb(74, 74, 202);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.serchForm {
+   display: flex;
+   flex-direction: row;
+}
+
+.serchImput {
+    padding: 12px;
+    height: 40px;
+    margin-right: 12px;
+    border-radius: 8px;
+}
+
+.searchBtn {
+padding: 12px;
+height: 40px;
+border-radius: 8px;
+border: none;
+background-color: rgb(224, 161, 51);
+}
