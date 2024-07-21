@@ -14,6 +14,7 @@
 .serchImput {
     padding: 12px;
     height: 40px;
+    width: 360px;
     margin-right: 12px;
     border-radius: 8px;
 }

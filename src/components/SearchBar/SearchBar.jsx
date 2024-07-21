@@ -5,7 +5,7 @@ const SearchBar = () => {
         <header className={s.header}> 
   <form className={s.serchForm}>
     <input
-      type="text"
+      type="search"
       autoComplete="off"
       autoFocus 
       placeholder="Search images and photos"
