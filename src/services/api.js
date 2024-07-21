@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const fetchImages = async (query) => {
-    const res = await axios.get("https://api.unsplash.com/", {
+    const res = await axios.get("https://api.unsplash.com/search/photos", {
         headers: {
-            Authorization: "yt5lj5TeieHgBwsXTJkdTGG1kyvDllmEJpX4pQ1H2ZQ",
+            Authorization: "Client-ID yt5lj5TeieHgBwsXTJkdTGG1kyvDllmEJpX4pQ1H2ZQ",
         },
         params: {
             query,
