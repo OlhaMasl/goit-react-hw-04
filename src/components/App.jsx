@@ -6,6 +6,7 @@ import {fetchImages} from "../services/api"
 import Loader from "./Loader/Loader";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./ImageModal/ImageModal"
 
 
 const App = () => {
@@ -15,6 +16,11 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
+  const [showBtn, setShowBtn] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [bigImage, setBigImage] = useState("");
+ 
+
   useEffect(() => {
     const getImages = async () => {
       try {
@@ -26,9 +32,11 @@ const App = () => {
         setIsError(false);
         const res = await fetchImages(query, page);
         setSearchData((prev) => [...prev, ...res.results]);
-      } catch (error) {
+        setShowBtn(res.total_pages && res.total_pages !== page)
 
+      } catch (error) {
         setIsError(true);
+
       } finally { 
 
         setIsLoading(false);
@@ -40,15 +48,30 @@ const App = () => {
   const handleSetQuery = query => {
     setQuery(query);
     setSearchData([]);
-  }
+    setPage(1);
+  };
+
+  const onClickImage = (bigPhoto) => {
+    setBigImage(bigPhoto);
+    console.log(bigPhoto);
+    setIsOpen(true);
+  };
+
+  function openModal() {
+    setIsOpen(true);
+  };
+  function closeModal() {
+    setIsOpen(false);
+  };
 
     return (
     <>
         < SearchBar setQuery={handleSetQuery} />
-        <ImageGallery images={searchData} />
-        <LoadMoreBtn setPage={setPage} />
+        <ImageGallery images={searchData} onClickFn={onClickImage} />
+        {showBtn && <LoadMoreBtn setPage={setPage} />}
         {isLoading && <Loader />}
         {isError && <ErrorMessage />}
+        {modalIsOpen && <ImageModal image={bigImage} openFn={openModal} closeFn={closeModal} />}
     </>
   );
 };

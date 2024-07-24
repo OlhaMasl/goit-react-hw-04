@@ -1,4 +1,5 @@
 import s from "./SearchBar.module.css"
+import toast, { Toaster } from 'react-hot-toast';
 
 const SearchBar = ({ setQuery }) => {
   
@@ -6,8 +7,16 @@ const SearchBar = ({ setQuery }) => {
     e.preventDefault();
     const formInput = e.target.elements.query;
     setQuery(formInput.value);
+    if (formInput.value.trim() === "") {
+      toast("Enter your search text", {
+        duration: 4000,
+        position: "top-center",
+        className: "toastMessage",
+      });
+      return;
+    };
     e.target.reset();
-  }
+  };
 
     return (
         <header className={s.header}> 

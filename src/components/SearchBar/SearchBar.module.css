@@ -26,3 +26,7 @@ border-radius: 8px;
 border: none;
 background-color: rgb(228, 171, 96);
 }
+
+.toastMessage {
+    color: black;
+}
