@@ -68,8 +68,8 @@ const App = () => {
     <>
         < SearchBar setQuery={handleSetQuery} />
         <ImageGallery images={searchData} onClickFn={onClickImage} />
-        {showBtn && <LoadMoreBtn setPage={setPage} />}
         {isLoading && <Loader />}
+        {showBtn && <LoadMoreBtn setPage={setPage} />}
         {isError && <ErrorMessage />}
         {modalIsOpen && <ImageModal image={bigImage} openFn={openModal} closeFn={closeModal} />}
     </>

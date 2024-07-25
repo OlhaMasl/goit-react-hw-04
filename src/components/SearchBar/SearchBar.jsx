@@ -6,15 +6,14 @@ const SearchBar = ({ setQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formInput = e.target.elements.query;
-    setQuery(formInput.value);
     if (formInput.value.trim() === "") {
-      toast("Enter your search text", {
-        duration: 4000,
+       toast("Enter your search text", {
+        duration: 3000,
         position: "top-center",
-        className: "toastMessage",
       });
       return;
     };
+    setQuery(formInput.value);
     e.target.reset();
   };
 
@@ -28,7 +27,15 @@ const SearchBar = ({ setQuery }) => {
       placeholder="Search images and photos"
       className={s.serchImput}              
     />
-    <button   className={s.searchBtn} type="submit">Search</button>
+    <button className={s.searchBtn} type="submit">Search</button>
+    <Toaster toastOptions={{
+    className: 'toastMessge',
+    style: {
+      border: '1px solid #713200',
+      padding: '16px',
+      color: '#713200',
+    },
+  }}/>
   </form>
 </header>
 
