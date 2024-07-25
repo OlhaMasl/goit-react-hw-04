@@ -53,7 +53,6 @@ const App = () => {
 
   const onClickImage = (bigPhoto) => {
     setBigImage(bigPhoto);
-    console.log(bigPhoto);
     setIsOpen(true);
   };
 
