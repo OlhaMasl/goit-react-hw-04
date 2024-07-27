@@ -8,8 +8,8 @@ const ImageGallery = ({ images, onClickFn }) => {
         <div>
             <ul className={s.imageList} >
                 {images.map((image) => (
-                <li key={image.id} onClick={() => onClickFn(image)}>
-                    <ImageCard image={image} />
+                <li key={image.id} >
+                    <ImageCard onClickFn={onClickFn} image={image} />
                 </li>
             ))}
             </ul>

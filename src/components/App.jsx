@@ -56,9 +56,6 @@ const App = () => {
     setIsOpen(true);
   };
 
-  function openModal() {
-    setIsOpen(true);
-  };
   function closeModal() {
     setIsOpen(false);
   };
@@ -70,7 +67,7 @@ const App = () => {
         {isLoading && <Loader />}
         {showBtn && <LoadMoreBtn setPage={setPage} />}
         {isError && <ErrorMessage />}
-        {modalIsOpen && <ImageModal image={bigImage} openFn={openModal} closeFn={closeModal} />}
+        {modalIsOpen && <ImageModal image={bigImage} openFn={modalIsOpen} closeFn={closeModal} />}
     </>
   );
 };
